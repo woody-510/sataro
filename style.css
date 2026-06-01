@@ -1,0 +1,73 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-image: url('bg_image.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #111; /* fallback color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+#start-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    cursor: pointer;
+    color: white;
+    text-align: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.start-btn {
+    font-size: 2rem;
+    font-weight: bold;
+    padding: 30px 60px;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.start-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+#container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.flowing-image {
+    position: absolute;
+    left: 100vw; /* start just outside the viewport on the right */
+    object-fit: cover; /* This makes images look uniform even if original sizes vary */
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+    will-change: transform;
+}
+
+/* Base animation: move from current position leftwards indefinitely */
+@keyframes flow {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(calc(-100vw - 400px)); /* move across the entire screen plus max image width */
+    }
+}
