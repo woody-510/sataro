@@ -46,6 +46,18 @@ body, html {
     transform: scale(1.05);
 }
 
+#counter {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    z-index: 500;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+    pointer-events: none;
+}
+
 #container {
     position: relative;
     width: 100%;
@@ -60,6 +72,15 @@ body, html {
     border-radius: 12px;
     box-shadow: 0 10px 20px rgba(0,0,0,0.6);
     will-change: transform;
+    cursor: pointer;
+    transition: scale 0.3s ease-out, opacity 0.3s ease-out, filter 0.3s ease-out;
+}
+
+.flowing-image.popping {
+    scale: 0;
+    opacity: 0;
+    filter: brightness(2) blur(5px);
+    pointer-events: none;
 }
 
 /* Base animation: move from current position leftwards indefinitely */
